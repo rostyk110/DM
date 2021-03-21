@@ -12,7 +12,6 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListSubheader,
   Paper,
 } from '@material-ui/core'
 import { CloudUpload, EmojiObjects, Cancel } from '@material-ui/icons'
