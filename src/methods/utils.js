@@ -88,3 +88,18 @@ export const edgeCount = (graph, length) => {
   }
   return count
 }
+
+export const getAllEdges = graph => {
+  const result = []
+  for (let i = 0; i < graph.length; i++) {
+    for (let j = 0; j < graph[0].length; j++) {
+      if (graph[i][j] && i > j) {
+        if (Array.isArray(graph[i][j])) {
+          result.push([i, j])
+        }
+        result.push([j, i])
+      }
+    }
+  }
+  return result
+}

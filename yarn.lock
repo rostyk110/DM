@@ -5126,6 +5126,11 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
+eulerian-trail@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eulerian-trail/-/eulerian-trail-0.1.0.tgz#a3a47de871a6413a1cc30ee1b0224563026542c7"
+  integrity sha1-o6R96HGmQTocww7hsCJFYwJlQsc=
+
 eventemitter3@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.0.tgz#d65176163887ee59f386d64c82610b696a4a74eb"

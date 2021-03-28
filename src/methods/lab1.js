@@ -38,7 +38,7 @@ export async function methodPrime(data) {
     _length: 0,
     _vertices: [0],
   }
-  while (Object.keys(visited).length < length) {
+  while (Object.keys(visited).length <= length) {
     const edge = getMinEdgeWeight(matrix, length, visited._vertices)
 
     visited[vertices[edge.vertex1] + vertices[edge.vertex2]] = edge.weight

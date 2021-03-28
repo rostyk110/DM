@@ -1,4 +1,4 @@
-import { readTxtFile } from './utils'
+import { readTxtFile, getVertices } from './utils'
 
 const bfs = (rGraph, s, t, parent, V) => {
   const visited = new Array(V)
@@ -35,7 +35,7 @@ const bfs = (rGraph, s, t, parent, V) => {
 const fordFulkerson = (graph, s, t, V) => {
   const rGraph = new Array(V).fill('').map(() => new Array(V))
   const parent = new Array(V)
-  const path_flow_info = []
+  const path_flow_info = {}
 
   let u, v, max_flow = 0
 
@@ -50,6 +50,9 @@ const fordFulkerson = (graph, s, t, V) => {
     for (v = t; v !== s; v = parent[v]) {
       u = parent[v]
       path_flow = Math.min(path_flow, rGraph[u][v])
+      if (u === 0) {
+        path_flow_info[v] = !path_flow_info[v] ? path_flow : path_flow_info[v] + path_flow
+      }
     }
 
     for (v = t; v !== s; v = parent[v]) {
@@ -59,7 +62,6 @@ const fordFulkerson = (graph, s, t, V) => {
     }
 
     max_flow += path_flow
-    path_flow_info.push(path_flow)
   }
 
   return {
@@ -75,7 +77,10 @@ export async function solveFordFulkersonProblem(data) {
     path_flow,
   } = fordFulkerson(matrix, 0, length - 1, length)
 
-  const output = path_flow.map(flow => `path_flow: ${flow}`).join('\n');
+  const vertices = getVertices(length)
+  const output = Object.keys(path_flow)
+    .map(flow => `path_flow A(source) -> ${vertices[flow]}: ${path_flow[flow]}`)
+    .join('\n');
 
   return {
     output,

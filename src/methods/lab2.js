@@ -1,11 +1,12 @@
 import { find_path }  from 'dijkstrajs'
+import eulerianTrail from 'eulerian-trail'
 import {
   readTxtFile,
   getPossiblePairings,
   getVertices,
   matrixToGraph,
   getPathLength,
-  getIncidenceMatrix,
+  getAllEdges,
   isBridge,
   edgeCount,
 } from './utils'
@@ -141,8 +142,10 @@ export async function solvePostmanProblem(data) {
     if (isEulerianGraph(modifiedMatrix, length)) {
       const { totalLength } = shortestPath
       const optimalRouteLength = getSumOfEdges(modifiedMatrix, length, totalLength)
-      const incidenceMatrix = getIncidenceMatrix(modifiedMatrix)
-      const eulerianPath = getEulerianPath(incidenceMatrix, length, 0, [0])
+
+      const eulerianPath = eulerianTrail({
+        edges: getAllEdges(modifiedMatrix),
+      })
 
       const output = 'Chinese Postman Route: \n' +
         eulerianPath.map(i => getVertices(length)[i]).join(' --> ')
