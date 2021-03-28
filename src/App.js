@@ -68,7 +68,10 @@ function App() {
       }
       case 3: {
         const res = await solveFordFulkersonProblem(file)
-        await setResult(res)
+        await setResult({
+          res,
+          lengthText: 'The maximum possible flow is',
+        })
         break
       }
       case 4: {
