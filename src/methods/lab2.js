@@ -1,4 +1,3 @@
-import { find_path }  from 'dijkstrajs'
 import eulerianTrail from 'eulerian-trail'
 import {
   readTxtFile,
