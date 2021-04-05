@@ -1,4 +1,5 @@
 import eulerianTrail from 'eulerian-trail'
+import { find_path }  from 'dijkstrajs'
 import {
   readTxtFile,
   getPossiblePairings,

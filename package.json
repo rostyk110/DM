@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.2.6",
+    "dijkstrajs": "^1.0.1",
     "eulerian-trail": "^0.1.0",
     "lodash": "^4.17.21",
     "react": "^17.0.1",

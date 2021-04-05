@@ -21,7 +21,7 @@ import {
   solvePostmanProblem,
   solveTravellingSalesmanProblem,
   solveFordFulkersonProblem,
-  solveIsomorphismProblem,
+  topologicalSorting,
 } from './methods'
 import bcgImage from './live-from-space.jpg'
 import useStyles from './App.styles'
@@ -75,8 +75,11 @@ function App() {
         break
       }
       case 4: {
-        const res = await solveIsomorphismProblem(file)
-        await setResult(res)
+        const res = await topologicalSorting(file)
+        await setResult({
+          res,
+          lengthText: 'Following is a Topological sort of the given graph',
+        })
         break
       }
     }
@@ -97,7 +100,7 @@ function App() {
             <Tab className={classes.tab} label="Lab 2" />
             <Tab className={classes.tab} label="Lab 3" />
             <Tab className={classes.tab} label="Lab 4" />
-            <Tab className={classes.tab} label="Lab 5" />
+            <Tab className={classes.tab} label="RGR" />
           </Tabs>
         </Toolbar>
       </AppBar>
